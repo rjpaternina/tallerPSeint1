@@ -68,33 +68,33 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 
       Algoritmo capitalPais
 
-      Definir capital, pais Como Caracter;
+      	Definir capital, pais Como Caracter;
 
-      Escribir 'Ingrese el nombre de un pais: ';
-      Leer pais;
-      Escribir 'Ingrese la capital de ', pais;
-      Leer capital;
-      Escribir 'La ciudad ', capital, ', ' ' es la capital del pais ', pais, '.';
+      	Escribir 'Ingrese el nombre de un pais: ';
+      	Leer pais;
+      	Escribir 'Ingrese la capital de ', pais;
+      	Leer capital;
+      	Escribir 'La ciudad ', capital, ', ' ' es la capital del pais ', pais, '.';
 
-    FinAlgoritmo
+     FinAlgoritmo
 
 
 
 5) Realizar un programa el cual solicite el nombre de su mascota, edad de la mascota, el tipo de mascota y su nombre completo. Al finalizar el sistema debe e imprimir    en pantalla el siguiente mensaje: [Nombre de Mascota] es un(a) [Tipo de Mascota], el cual, tiene [Edad de la Mascota] años de edad y [Nombre Completo] es              actualmente su dueño(a).
 
-    Algoritmo mascota
+	Algoritmo mascota
 	
-      Definir nombreCompleto, nombreMascota, tipoMascota Como Caracter;
-      Definir edadMascota Como Entero;
+	      Definir nombreCompleto, nombreMascota, tipoMascota Como Caracter;
+	      Definir edadMascota Como Entero;
 
-      Escribir 'Ingrese su nombre completo: ';
-      Leer nombreCompleto;
-      Escribir '¿Como se llama su mascota?';
-      Leer nombreMascota;
-      Escribir '¿Que tipo de mascota es?';
-      Leer tipoMascota;
-      Escribir '¿Cuantos años tiene ' nombreMascota, '?';
-      Leer edadMascota;
-      Escribir nombreMascota, ' es un(a) ', tipoMascota, ', el cual, tiene ', edadMascota, ' años de edad y ' nombreCompleto, ' es actualmente su dueño.';
+	      Escribir 'Ingrese su nombre completo: ';
+	      Leer nombreCompleto;
+	      Escribir '¿Como se llama su mascota?';
+	      Leer nombreMascota;
+	      Escribir '¿Que tipo de mascota es?';
+	      Leer tipoMascota;
+	      Escribir '¿Cuantos años tiene ' nombreMascota, '?';
+	      Leer edadMascota;
+	      Escribir nombreMascota, ' es un(a) ', tipoMascota, ', el cual, tiene ', edadMascota, ' años de edad y ' nombreCompleto, ' es actualmente su dueño.';
 
-    FinAlgoritmo
+   	FinAlgoritmo
