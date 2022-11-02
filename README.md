@@ -104,10 +104,58 @@ Taller#2 - Taller de condicionales
 A continuación se describirán los ejercicios que deberá realizar. Por favor guardar los ejercicios dado que serán requeridos en entregas posteriores. Todos los ejercicios deben estar escritos en PSeInt con el perfil Estricto.
 
 1.	Realizar un programa en el cual se solicite la edad de una persona. Si la persona es mayor o igual a 18 años, deberá mostrar en pantalla: Usted es mayor de edad.
+	
+	Algoritmo edadPersona;
+
+		Definir edad como entero;
+
+		Escribir "Digite su edad";
+		Leer edad;
+		Si edad >= 18 Entonces
+			Escribir "Usted es mayor de edad";
+		FinSi
+	
+	FinAlgoritmo;
+
+
 
 2.	Realizar un programa en el cual se solicite la edad de una persona. Si la persona es menor a 18 años, deberá mostrar en pantalla: Usted aún es un niño(a).
 
+	Algoritmo edadMenor;
+	
+		Definir edad como entero;
+
+		Escribir "Digite su edad";
+		Leer edad;
+		Si edad < 18 Entonces
+			Escribir "Usted aún es un niño(a)";
+		FinSi
+	
+	FinAlgoritmo;
+	
+
 3.	Realizar un programa en el cual se solicite el nombre, apellidos y edad de la persona. Si la persona es mayor o igual a 18 años, entonce se deberá imprimir en pantalla [Nombre completo] usted es mayor de edad, por lo tanto puede entrar a la fiesta. Si la edad de la persona es menor que 18 años, entonces, deberá imprimirse el siguiente mensaje: [Nombre completo] usted es menor de edad, por lo tanto, no puede entrar a la fiesta, por favor devuélvase a su casa.
+
+	Algoritmo entradaFiesta;
+	
+		Definir nombre, apellidos Como Caracter;
+		Definir edad Como Entero;
+
+		Escribir "Digite su nombre:";
+		Leer nombre;
+		Escribir "Digite sus apellidos:";
+		Leer apellidos;
+		Escribir "¿Cual es su edad?";
+		Leer edad;
+
+		Si edad >= 18 Entonces
+			Escribir nombre, " ", apellidos, ", usted es mayor de edad, por lo tanto puede entrar a la fiesta.";
+		SiNo
+			Escribir nombre, " ", apellidos, ", usted es menor de edad, por lo tanto, no puede entrar a la fiesta, por favor devuélvase a su casa.";
+		FinSi
+
+	FinAlgoritmo;
+	
 
 4.	La video tienda que presta sus servicios de alquiler de películas a los usuarios del barrio el Porvenir, requiere de una aplicación que permita registrar el alquiler de las películas que adquieren sus usuarios. Para cada usuario se debe permitir la opción de alquilar película, consultar películas disponibles y recibir película en la video tienda con la opción de realizar anotaciones sobre estas si se llegan a presentar daños u otra novedad sobre la película.
 
