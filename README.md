@@ -159,11 +159,252 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 
 4.	La video tienda que presta sus servicios de alquiler de películas a los usuarios del barrio el Porvenir, requiere de una aplicación que permita registrar el alquiler de las películas que adquieren sus usuarios. Para cada usuario se debe permitir la opción de alquilar película, consultar películas disponibles y recibir película en la video tienda con la opción de realizar anotaciones sobre estas si se llegan a presentar daños u otra novedad sobre la película.
 
+	Algoritmo alquilerPeliculas
+
+		Definir eleccionUsuario Como Entero;
+		Definir nombrePelicula, apreciacionesUsuario Como Caracter;
+		Definir alquilarPelicula, anotacionesPelicula como logico;
+		alquilarPelicula = Falso;
+		anotacionesPelicula = Falso;
+
+		Escribir "Bienvenido señor(a) usuario(a)";
+		Escribir "Menú de usuarios:";
+		Escribir  " 1 - Consultar pelicula";
+		Escribir  " 2 - Alquilar pelicula";
+		Escribir  " 3 - Devolver pelicula";
+		Escribir  "Escoja una opcion 1-3:";
+		Leer eleccionUsuario;
+
+		Segun eleccionUsuario Hacer
+			1:
+				Escribir "Digite nombre de pelicula a buscar";
+				Leer nombrePelicula;
+				Escribir "La pelicula buscada es:", nombrePelicula;
+				Escribir "Desea alquilarla? - (Digite: Falso o Verdadero)";
+				Leer alquilarPelicula;
+				Si alquilarPelicula = Verdadero Entonces
+					Escribir "Es un gusto, ya se la traemos!"
+				SiNo
+					Escribir "A la orden, fue un placer atenderlo!";
+				FinSi
+			2:	
+				Escribir "Digite nombre de pelicula a alquilar";
+				Leer nombrePelicula;
+				Escribir "Es un gusto, ya se la traemos!";
+			3:		
+				Escribir "Desea realizar alguna anotacion o novedad sobre la pelicula devuelta?";
+				Leer anotacionesPelicula;
+				Si anotacionesPelicula = Verdadero
+					Escribir "Apreciado(a) usuario(a), favor diligenciar sus apreciaciones o novedades acerca de la pelicula devuelta:";
+					Leer apreciacionesUsuario;
+					Escribir "Señor(a) usuario(a), sus apreciaciones fueron procesada satisfactoriamente. Ha sido un gusto atenderlo!";
+				FinSi
+			De Otro Modo:
+				Escribir "Esta opcion no existe";
+		Fin segun
+	FinAlgoritmo
+
 5.	La Droguería Mi Salud presta sus servicios en la localidad de Suba y requiere una aplicación para poder facturar los productos que vende a sus clientes y para ello, los productos tienen unas características que deben indicársele al cliente para que pueda escoger el producto a comprar. Para cada cliente, se tienen las opciones de compra de producto, consulta de precios por producto y devoluciones en caso de que se presenten.
+
+	Algoritmo appDrogueria
+
+		Definir eleccionUsuario, opcionDevolucion Como Entero;
+		Definir nombreProducto, devolucionPoducto Como Caracter;
+		Definir comprarProducto como logico;
+
+		comprarProducto = Falso;
+
+		Escribir "Bienvenido señor(a) usuario(a)";
+		Escribir "Menú de usuarios:";
+		Escribir  " 1 - Consultar precio de producto";
+		Escribir  " 2 - Comprar producto";
+		Escribir  " 3 - Devolver producto";
+		Escribir  "Escoja una opcion 1-3:";
+		Leer eleccionUsuario;
+
+		Segun eleccionUsuario Hacer
+			1:
+				Escribir "Digite nombre de producto";
+				Leer nombreProducto;
+				Escribir "El precio de ", nombreProducto, " es...";
+				Escribir "Desea comprar el producto?";
+				Leer comprarProducto;
+				Si  comprarProducto = Verdadero Entonces
+					Escribir "Es un gusto, ya se la traemos!"
+				SiNo
+					Escribir "Recuerde que siempre estamos a la orden para cuando quiera adquirirlo!";
+				FinSi
+			2:	
+				Escribir "Digite nombre de producto";
+				Leer nombreProducto;
+				Escribir "Es un gusto, ya se la traemos!";
+			3:		
+				Escribir "Señor(a) usuario(a), favor diligenciar el motivo de devolucion del producto";
+				Leer devolucionPoducto;
+				Escribir "Señor(a) usuario(a), que desea hacer? Elija una opcion: 1 - Reposición de producto 2 - Devolución de producto";
+				Leer opcionDevolucion;
+				Si opcionDevolucion = 1 Entonces
+						Escribir "Señor(a) usuario(a), ya procederemos con su reposicion";
+				SiNo
+					Si opcionDevolucion = 2 Entonces
+						Escribir "Señor(a) usuario(a), ya procederemos con la devolución de su dinero";
+					SiNo
+						Escribir "Señor(a) usuario(a), la opción elegida no es válida, favor elegir una de las opciones presentadas";
+					FinSi
+
+				FinSi
+			De Otro Modo:
+				Escribir "Señor(a) usuario(a), esta opcion no existe, favor elegir entre las opciones presentadas";
+		Fin segun
+
+	FinAlgoritmo
 
 6.	El taller de motos "El Maquinista" recibe motocicletas de alto cilindraje para realizar las respectivas revisiones y requiere una aplicación que le permita registrar los servicios generados a sus clientes. Para cada motocicleta se debe tener registro del ingreso al taller y las observaciones por parte del cliente. También debe existir registro de salida del taller con las novedades y otra de arreglos hechos por el mecánico en caso de que se requiera inventariar cambios repuestos en la motocicleta al entregarla.
 
+	Algoritmo tallerMoto
+
+		Definir nombreCliente, apellidoCliente, DNI, direccionCliente, telCliente, emailCliente, marcaMoto, cilindrajeMoto, mtto, observacionCliente,          		       serviciosPrestados, repuestosVendidos, serviciosYRptos Como Caracter;
+		Definir tipoMtto, conceptoFactura Como Entero;
+		Definir valorServicios, valorRepuestos, valorServiciosYRepuestos, totalFacturacion Como Real;
+
+		Escribir "***Taller de motos El Maquinista***";
+		Escribir "Menú de usuarios:";
+		Escribir  " 1 - Registrar Cliente";
+		Escribir  " 2 - Ingreso a Taller";
+		Escribir  " 3 - Facturar Ventas y/o Servicios";
+		Escribir  " 4 - Salida de Taller";
+		Escribir  "Escoja una opcion 1-4:";
+		Leer eleccionUsuario;
+
+		Segun eleccionUsuario Hacer
+			1: 
+				Escribir "Digite nombres del cliente:";
+				Leer nombreCliente;
+				Escribir "Digite apellidos del cliente:";
+				Leer apellidoCliente;
+				Escribir "Digite DNI cliente:";
+				Leer DNI;
+				Escribir "Digite direccion del cliente:";
+				Leer direccionCliente;
+				Escribir "Digite telefono del cliente:";
+				Leer telCliente;
+				Escribir "Digite su correo electronico:";
+				Leer emailCliente;
+				Escribir "El cliente registrado es: ", nombreCliente,  " , ", apellidoCliente " , ", "DNI: ", DNI, " , ", "Direccion: ", 					direccionCliente, " , ", "Telefono: ", telCliente, " , ", "Correo electronico: ", emailCliente;
+			2:		
+				Escribir "Digite marca de moto:";
+				Leer marcaMoto;
+				Escribir "Digite modelo:";
+				Leer modeloMoto;
+				Escribir "Digite cilindraje (cc):";
+				Leer cilindrajeMoto;
+				Escribir "Digite numero de placa:";
+				Leer placaMoto;
+				Escribir "Motivo de ingreso a taller: 1 - Mantenimiento preventivo o 2 - Mantenimiento correctivo";
+				Leer tipoMtto;
+				Si tipoMtto = 1 Entonces
+					mtto = "preventivo"
+				SiNo
+					Si tipoMtto = 2 Entonces
+						mtto = "correctivo"
+					FinSi
+				FinSi
+				Escribir "Registre las observaciones del cliente:";
+				Leer observacionCliente;
+				Escribir "**Datos de ingreso de la moto**  - ", "Marca moto: ", marcaMoto, " ; ", "Modelo: ", modeloMoto, " ; ",  "Cilindraje (cc): ", 				       cilindrajeMoto, " ; ",  "Placa: ", placaMoto, " ; ", "Motivo de ingreso: Mantenimiento ", mtto, " ; ", "Observaciones del cliente: ", 				     observacionCliente;
+				
+			3:	
+				Escribir "Menú Facturacion";
+				Escribir "Concepto a facturar:";
+				Escribir " 1 - Servicio";
+				Escribir " 2 - Repuestos";
+				Escribir " 3 - Servicio + respuestos";
+				Leer conceptoFactura;
+
+				Si conceptoFactura = 1 Entonces
+					Escribir "Digite los servicios prestados:";
+					Leer serviciosPrestados;
+					Escribir "Digite el valor de los servicios prestados:";
+					Leer valorServicios;
+
+				SiNo
+					Si conceptoFactura = 2 Entonces
+						Escribir "Digite los repuestos vendidos:";
+						Leer repuestosVendidos;
+						Escribir "Digite el valor de repuestos vendidos:"
+						Leer valorRepuestos;
+					SiNo
+						Si conceptoFactura = 3 Entonces
+							Escribir "Digite los servicios prestados y repuestos vendidos:";
+							Leer serviciosYRptos;
+							Escribir "Digite el valor de servicios y repuestos vendidos:";
+							Leer valorServiciosYRepuestos;
+						FinSi
+					FinSi
+				FinSi
+				totalFacturacion = valorServicios + valorRepuestos + valorServiciosYRepuestos;
+				Escribir "Los servicios/repuestos prestados son: ", serviciosPrestados, repuestosVendidos, serviciosYRptos, " por un total de "  				 totalFacturacion " pesos.";	
+
+			4:	
+				Escribir "Digite marca de moto:";
+				Leer marcaMoto;
+				Escribir "Digite modelo:";
+				Leer modeloMoto;
+				Escribir "Digite cilindraje:";
+				Leer cilindrajeMoto;
+				Escribir "Digite numero de placa:";
+				Leer placaMoto;
+				Escribir "Motivo de salida de taller: 1 - Servicio conforme o 2 - Servicio no conforme";
+				Leer tipoSalida;
+				Si tipoSalida = 1 Entonces
+					Escribir "Relaciones los servicios prestados,  repuestos consumidos en reparacion de la moto y otras observaciones de 						conformidad:";
+					Leer servicioConforme;
+					Escribir "Se hace entrega de moto", " ", marcaMoto, ", ", "modelo ", modeloMoto, ", ",  "cilindraje ", cilindrajeMoto, "cc " ", 					",  "placa ", placaMoto, " con las siguientes observaciones: ", servicioConforme;   
+				SiNo
+					Si tipoSalida = 2 Entonces
+						Escribir "Relacione las razones de la no conformidad del servico y otras observaciones:";
+						Leer servicioNoConforme;
+						Escribir "Se hace entrega de moto", " ", marcaMoto, ", ", "modelo ", modeloMoto, ", ",  "cilindraje ", cilindrajeMoto, 						       "cc", ", ",  "Placa ", placaMoto, " con las siguientes observaciones de no conformidad: ", servicioNoConforme;   
+					FinSi
+				FinSi
+			De Otro Modo:
+				Escribir "Favor seleccionar de las opciones presentadas"
+		FinSegun
+	FinAlgoritmo
+
+
 7.	La Secretaría de Salud Municipal requiere de una aplicación que le permita calcular el IMC (Índice de masa corporal) y requiere los datos peso en kilogramos y estatura en metros Para cada persona encuestada adicional a los datos suministrados, debe mostrar el resultado para cada uno y establecer en qué rango se encuentra (bajo peso, normal, sobrepeso y obeso).
+
+	Algoritmo masaCorporal
+
+		Definir IMC, peso, estatura Como Real;
+
+		Escribir "Señor usuario(a), digite su peso en kilogramos:";
+		Leer peso;
+		Escribir "Señor usuario(a), digite su estatura en metros:";
+		Leer estatura;
+
+		IMC = peso / (estatura * estatura);
+		Si IMC < 18.5  Entonces
+			Escribir "Usted se encuentra en un rango bajo de peso";
+		SiNo
+			Si (IMC > 18.4) y (IMC < 25) Entonces
+				Escribir "Usted se encuentra en un rango normal de peso";
+			SiNo
+				Si (IMC > 24.9) y (IMC < 30) Entonces
+					Escribir "Usted seencuentra en un rango de sobrepeso";
+				SiNo
+					Si (IMC >= 30) Entonces
+						Escribir "Usted se encuentra en un rango de obeso";
+					FinSi
+				FinSi
+
+			FinSi
+		FinSi
+
+
+	FinAlgoritmo
+
 
 8.	El pastelero Don Carlos es el mejor pastelero de la ciudad y requiere una aplicación que le permita registrar los pedidos de los clientes en cuanto a las tortas que realiza. Cada torta tiene unas características propias como sabor, cantidad (porciones) y decoraciones). Se requiere que la aplicación permita registrar los pedidos, las tortas disponibles y las ventas que se registren diariamente.
 
