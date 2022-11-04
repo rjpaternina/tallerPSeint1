@@ -30,7 +30,7 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
         Escribir 'Digite sus apellidos: ';
         leer apellidos;
         Escribir 'Digite su edad';
-        Leer edad
+        Leer edad;
         Escribir 'Digite su estatura';
         Leer estatura;
 
@@ -43,7 +43,7 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 
       Algoritmo otrosDatosPersonales
 	
-        Definir nombre, nombrePadre, nombreMadre, apellidosPadre, ApellidosMadre Como Caracter;
+        Definir nombre, apellidos, nombrePadre, nombreMadre, apellidosPadre, ApellidosMadre Como Caracter;
 
         Escribir 'Digite su nombre: ";
         Leer nombre;
@@ -73,7 +73,7 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
       	Leer pais;
       	Escribir 'Ingrese la capital de ', pais;
       	Leer capital;
-      	Escribir 'La ciudad ', capital, ', ' ' es la capital del pais ', pais, '.';
+      	Escribir 'La ciudad ', capital, ', ', ' es la capital del pais ', pais, '.';
 
      FinAlgoritmo
 
@@ -92,9 +92,9 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 	      Leer nombreMascota;
 	      Escribir '¿Que tipo de mascota es?';
 	      Leer tipoMascota;
-	      Escribir '¿Cuantos años tiene ' nombreMascota, '?';
+	      Escribir '¿Cuantos años tiene ', nombreMascota, '?';
 	      Leer edadMascota;
-	      Escribir nombreMascota, ' es un(a) ', tipoMascota, ', el cual, tiene ', edadMascota, ' años de edad y ' nombreCompleto, ' es actualmente su dueño.';
+	      Escribir nombreMascota, ' es un(a) ', tipoMascota, ', el cual, tiene ', edadMascota, ' años de edad y ', nombreCompleto, ' es actualmente su dueño.';
 
    	FinAlgoritmo
 
@@ -160,13 +160,15 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 4.	La video tienda que presta sus servicios de alquiler de películas a los usuarios del barrio el Porvenir, requiere de una aplicación que permita registrar el alquiler de las películas que adquieren sus usuarios. Para cada usuario se debe permitir la opción de alquilar película, consultar películas disponibles y recibir película en la video tienda con la opción de realizar anotaciones sobre estas si se llegan a presentar daños u otra novedad sobre la película.
 
 	Algoritmo alquilerPeliculas
-
+	
+		//DEFINICION DE VARIABLES
 		Definir eleccionUsuario Como Entero;
 		Definir nombrePelicula, apreciacionesUsuario Como Caracter;
 		Definir alquilarPelicula, anotacionesPelicula como logico;
-		alquilarPelicula = Falso;
-		anotacionesPelicula = Falso;
-
+		alquilarPelicula <- Falso;
+		anotacionesPelicula <- Falso;
+		
+		//INICIO DE MENU
 		Escribir "Bienvenido señor(a) usuario(a)";
 		Escribir "Menú de usuarios:";
 		Escribir  " 1 - Consultar pelicula";
@@ -174,46 +176,58 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 		Escribir  " 3 - Devolver pelicula";
 		Escribir  "Escoja una opcion 1-3:";
 		Leer eleccionUsuario;
-
+		Limpiar Pantalla;
+		
 		Segun eleccionUsuario Hacer
 			1:
+				//OPCION CONSULTAR PELICULA
 				Escribir "Digite nombre de pelicula a buscar";
 				Leer nombrePelicula;
 				Escribir "La pelicula buscada es:", nombrePelicula;
 				Escribir "Desea alquilarla? - (Digite: Falso o Verdadero)";
 				Leer alquilarPelicula;
 				Si alquilarPelicula = Verdadero Entonces
-					Escribir "Es un gusto, ya se la traemos!"
+					Escribir "Es un gusto, ya se la traemos!";
 				SiNo
 					Escribir "A la orden, fue un placer atenderlo!";
 				FinSi
-			2:	
+			2:
+				//OPCION CONSULTAR PELICULA
 				Escribir "Digite nombre de pelicula a alquilar";
 				Leer nombrePelicula;
 				Escribir "Es un gusto, ya se la traemos!";
+				
 			3:		
-				Escribir "Desea realizar alguna anotacion o novedad sobre la pelicula devuelta?";
+				//OPCION DEVOLVER PELICULA
+				Escribir "Desea realizar alguna anotacion o novedad sobre la pelicula devuelta? (Digite Falso o Verdadero)";
 				Leer anotacionesPelicula;
-				Si anotacionesPelicula = Verdadero
+				Limpiar Pantalla;//OPCION DEVOLVER PELICULA
+				Si anotacionesPelicula = Verdadero Entonces
 					Escribir "Apreciado(a) usuario(a), favor diligenciar sus apreciaciones o novedades acerca de la pelicula devuelta:";
 					Leer apreciacionesUsuario;
+					Limpiar Pantalla;
 					Escribir "Señor(a) usuario(a), sus apreciaciones fueron procesada satisfactoriamente. Ha sido un gusto atenderlo!";
+				SiNo
+				   Escribir "Fue un placer atenderlo";
 				FinSi
+				
 			De Otro Modo:
-				Escribir "Esta opcion no existe";
-		Fin segun
+				Escribir "Favor, elegir entre las opciones presentadas.";
+		FinSegun
 	FinAlgoritmo
 
 5.	La Droguería Mi Salud presta sus servicios en la localidad de Suba y requiere una aplicación para poder facturar los productos que vende a sus clientes y para ello, los productos tienen unas características que deben indicársele al cliente para que pueda escoger el producto a comprar. Para cada cliente, se tienen las opciones de compra de producto, consulta de precios por producto y devoluciones en caso de que se presenten.
 
 	Algoritmo appDrogueria
-
+		
+		//DEFINICION DE VARIABLES
 		Definir eleccionUsuario, opcionDevolucion Como Entero;
 		Definir nombreProducto, devolucionPoducto Como Caracter;
 		Definir comprarProducto como logico;
 
-		comprarProducto = Falso;
+		comprarProducto <- Falso;
 
+		//INICIO DE MENU
 		Escribir "Bienvenido señor(a) usuario(a)";
 		Escribir "Menú de usuarios:";
 		Escribir  " 1 - Consultar precio de producto";
@@ -224,24 +238,29 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 
 		Segun eleccionUsuario Hacer
 			1:
+				//OPCION CONCULTAR PERIO DE PRODUCTO
 				Escribir "Digite nombre de producto";
 				Leer nombreProducto;
-				Escribir "El precio de ", nombreProducto, " es...";
-				Escribir "Desea comprar el producto?";
+				Escribir "El producto elegido es:", nombreProducto;
+				Escribir "Desea comprar el producto? (Digite Falso o Verdadero)";
 				Leer comprarProducto;
 				Si  comprarProducto = Verdadero Entonces
-					Escribir "Es un gusto, ya se la traemos!"
+					Escribir "Es un gusto, ya se la traemos!";
 				SiNo
 					Escribir "Recuerde que siempre estamos a la orden para cuando quiera adquirirlo!";
 				FinSi
+				
 			2:	
+				//OPCION COMPRAR PRODUCTO
 				Escribir "Digite nombre de producto";
 				Leer nombreProducto;
 				Escribir "Es un gusto, ya se la traemos!";
-			3:		
+				
+			3:	
+				//OPCION DEVOLVER PRODUCTO
 				Escribir "Señor(a) usuario(a), favor diligenciar el motivo de devolucion del producto";
 				Leer devolucionPoducto;
-				Escribir "Señor(a) usuario(a), que desea hacer? Elija una opcion: 1 - Reposición de producto 2 - Devolución de producto";
+				Escribir "Señor(a) usuario(a), que desea hacer? Elija una opcion: 1 - Reposición de producto 2 - 				 				 Devolución de producto";
 				Leer opcionDevolucion;
 				Si opcionDevolucion = 1 Entonces
 						Escribir "Señor(a) usuario(a), ya procederemos con su reposicion";
@@ -249,13 +268,14 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 					Si opcionDevolucion = 2 Entonces
 						Escribir "Señor(a) usuario(a), ya procederemos con la devolución de su dinero";
 					SiNo
-						Escribir "Señor(a) usuario(a), la opción elegida no es válida, favor elegir una de las opciones presentadas";
+						Escribir "Señor(a) usuario(a), la opción elegida no es válida, favor elegir una de 						   las opciones presentadas";
 					FinSi
 
 				FinSi
+				
 			De Otro Modo:
 				Escribir "Señor(a) usuario(a), esta opcion no existe, favor elegir entre las opciones presentadas";
-		Fin segun
+		FinSegun
 
 	FinAlgoritmo
 
@@ -263,8 +283,8 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 
 	Algoritmo tallerMoto
 
-		Definir nombreCliente, apellidoCliente, DNI, direccionCliente, telCliente, emailCliente, marcaMoto, cilindrajeMoto, mtto, observacionCliente,          		       serviciosPrestados, repuestosVendidos, serviciosYRptos Como Caracter;
-		Definir tipoMtto, conceptoFactura Como Entero;
+		Definir nombreCliente, apellidoCliente, DNI, direccionCliente, telCliente, emailCliente, marcaMoto, cilindrajeMoto, mtto, observacionCliente,          		       serviciosPrestados, repuestosVendidos, serviciosYRptos, servicioConforme, servicioNoConforme Como Caracter;
+		Definir eleccionUsuario, tipoMtto, conceptoFactura, motivoSalida Como Entero;
 		Definir valorServicios, valorRepuestos, valorServiciosYRepuestos, totalFacturacion Como Real;
 
 		Escribir "***Taller de motos El Maquinista***";
@@ -275,9 +295,11 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 		Escribir  " 4 - Salida de Taller";
 		Escribir  "Escoja una opcion 1-4:";
 		Leer eleccionUsuario;
+		Limpiar Pantalla;
 
 		Segun eleccionUsuario Hacer
 			1: 
+				//OPCION 1 - REGISTRAR CLIENTES
 				Escribir "Digite nombres del cliente:";
 				Leer nombreCliente;
 				Escribir "Digite apellidos del cliente:";
@@ -290,8 +312,11 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 				Leer telCliente;
 				Escribir "Digite su correo electronico:";
 				Leer emailCliente;
-				Escribir "El cliente registrado es: ", nombreCliente,  " , ", apellidoCliente " , ", "DNI: ", DNI, " , ", "Direccion: ", 					direccionCliente, " , ", "Telefono: ", telCliente, " , ", "Correo electronico: ", emailCliente;
-			2:		
+				Limpiar Pantalla;
+				Escribir "El cliente registrado es: ", nombreCliente,  " , ", apellidoCliente, " , ", "DNI: ", DNI, " , ", "Direccion: ", 					direccionCliente, " , ", "Telefono: ", telCliente, " , ", "Correo electronico: ", emailCliente;
+			
+			2:	
+				//OPCION 2 - INGRESO A TALLER
 				Escribir "Digite marca de moto:";
 				Leer marcaMoto;
 				Escribir "Digite modelo:";
@@ -300,20 +325,25 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 				Leer cilindrajeMoto;
 				Escribir "Digite numero de placa:";
 				Leer placaMoto;
+				Limpiar Pantalla;
 				Escribir "Motivo de ingreso a taller: 1 - Mantenimiento preventivo o 2 - Mantenimiento correctivo";
 				Leer tipoMtto;
 				Si tipoMtto = 1 Entonces
-					mtto = "preventivo"
+					mtto <- "preventivo"
 				SiNo
 					Si tipoMtto = 2 Entonces
-						mtto = "correctivo"
+						mtto <- "correctivo"
 					FinSi
 				FinSi
 				Escribir "Registre las observaciones del cliente:";
 				Leer observacionCliente;
-				Escribir "**Datos de ingreso de la moto**  - ", "Marca moto: ", marcaMoto, " ; ", "Modelo: ", modeloMoto, " ; ",  "Cilindraje (cc): ", 				       cilindrajeMoto, " ; ",  "Placa: ", placaMoto, " ; ", "Motivo de ingreso: Mantenimiento ", mtto, " ; ", "Observaciones del cliente: ", 				     observacionCliente;
+				Limpiar Pantalla;
+				Escribir "***ENTRADA A TALLER***";
+				Escribir "**Datos de ingreso de la moto**  - ", "Marca moto: ", marcaMoto, " ; ", "Modelo: ", modeloMoto, " ; ",  "Cilindraje (cc): ", 				       cilindrajeMoto, " ; ",  "Placa: ", placaMoto, " ; ", "Motivo de ingreso: Mantenimiento ", mtto, " ; ";
+				Escribir "Motivos de ingreso y/o observaciones del cliente: ", observacionCliente;
 				
 			3:	
+				//OPCION 3 - FACTURAR VENTAS Y SERVICIOS
 				Escribir "Menú Facturacion";
 				Escribir "Concepto a facturar:";
 				Escribir " 1 - Servicio";
@@ -326,26 +356,33 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 					Leer serviciosPrestados;
 					Escribir "Digite el valor de los servicios prestados:";
 					Leer valorServicios;
+					Limpiar Pantalla;
+					Escribir "Los servicios prestados son: ", serviciosPrestados, " por un total de ",  valorServicios, " pesos.";
 
 				SiNo
 					Si conceptoFactura = 2 Entonces
 						Escribir "Digite los repuestos vendidos:";
 						Leer repuestosVendidos;
-						Escribir "Digite el valor de repuestos vendidos:"
+						Escribir "Digite el valor de repuestos vendidos:";
 						Leer valorRepuestos;
+						Limpiar Pantalla;
+						Escribir "Los repuestos vendidos son: ", repuestosVendidos, " por un total de ",  valorRepuestos, " pesos.";
 					SiNo
 						Si conceptoFactura = 3 Entonces
 							Escribir "Digite los servicios prestados y repuestos vendidos:";
 							Leer serviciosYRptos;
 							Escribir "Digite el valor de servicios y repuestos vendidos:";
 							Leer valorServiciosYRepuestos;
+							Limpiar Pantalla;
+							Escribir "Los servicios prestados y repuestos vendidos son: ",  serviciosYRptos, " por un total de ",  								valorServiciosYRepuestos, " pesos.";
 						FinSi
 					FinSi
 				FinSi
-				totalFacturacion = valorServicios + valorRepuestos + valorServiciosYRepuestos;
-				Escribir "Los servicios/repuestos prestados son: ", serviciosPrestados, repuestosVendidos, serviciosYRptos, " por un total de "  				 totalFacturacion " pesos.";	
+				totalFacturacion <- valorServicios + valorRepuestos + valorServiciosYRepuestos;
+				Escribir "El total de su factura por servicios prestados y/o repuestos vendidos son: ", serviciosPrestados, repuestosVendidos, 					serviciosYRptos, " por un total de ",  totalFacturacion, " pesos.";	
 
-			4:	
+			4:
+				//OPCION 4- SALIDA DE TALLER
 				Escribir "Digite marca de moto:";
 				Leer marcaMoto;
 				Escribir "Digite modelo:";
@@ -355,20 +392,24 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 				Escribir "Digite numero de placa:";
 				Leer placaMoto;
 				Escribir "Motivo de salida de taller: 1 - Servicio conforme o 2 - Servicio no conforme";
-				Leer tipoSalida;
-				Si tipoSalida = 1 Entonces
+				Leer motivoSalida;
+				Si motivoSalida = 1 Entonces
 					Escribir "Relaciones los servicios prestados,  repuestos consumidos en reparacion de la moto y otras observaciones de 						conformidad:";
 					Leer servicioConforme;
-					Escribir "Se hace entrega de moto", " ", marcaMoto, ", ", "modelo ", modeloMoto, ", ",  "cilindraje ", cilindrajeMoto, "cc " ", 					",  "placa ", placaMoto, " con las siguientes observaciones: ", servicioConforme;   
+					Limpiar Pantalla;
+					Escribir "***SALIDA DE TALLER***";
+					Escribir "Se hace entrega de moto", " ", marcaMoto, ", ", "modelo ", modeloMoto, ", ",  "cilindraje ", cilindrajeMoto, "cc ", 					      ", ",  "placa ", placaMoto, " con las siguientes observaciones: ", servicioConforme;   
 				SiNo
-					Si tipoSalida = 2 Entonces
+					Si motivoSalida = 2 Entonces
 						Escribir "Relacione las razones de la no conformidad del servico y otras observaciones:";
 						Leer servicioNoConforme;
+						Limpiar Pantalla;
+						Escribir "***SALIDA DE TALLER***";
 						Escribir "Se hace entrega de moto", " ", marcaMoto, ", ", "modelo ", modeloMoto, ", ",  "cilindraje ", cilindrajeMoto, 						       "cc", ", ",  "Placa ", placaMoto, " con las siguientes observaciones de no conformidad: ", servicioNoConforme;   
 					FinSi
 				FinSi
 			De Otro Modo:
-				Escribir "Favor seleccionar de las opciones presentadas"
+				Escribir "Favor seleccionar de las opciones presentadas";
 		FinSegun
 	FinAlgoritmo
 
@@ -384,7 +425,7 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 		Escribir "Señor usuario(a), digite su estatura en metros:";
 		Leer estatura;
 
-		IMC = peso / (estatura * estatura);
+		IMC <- peso / (estatura * estatura);
 		Si IMC < 18.5  Entonces
 			Escribir "Usted se encuentra en un rango bajo de peso";
 		SiNo
