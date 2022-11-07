@@ -449,6 +449,275 @@ A continuación se describirán los ejercicios que deberá realizar. Por favor g
 
 8.	El pastelero Don Carlos es el mejor pastelero de la ciudad y requiere una aplicación que le permita registrar los pedidos de los clientes en cuanto a las tortas que realiza. Cada torta tiene unas características propias como sabor, cantidad (porciones) y decoraciones). Se requiere que la aplicación permita registrar los pedidos, las tortas disponibles y las ventas que se registren diariamente.
 
+	Algoritmo appPasteleria
+
+		Definir eleccionUsuario, eleccion1, eleccion2, eleccion3, contadorPedido, totalFactura, totalPedido, adicionPersonalizacion, tortaMediaLibra, 			torta1Libra, torta2Libras  Como Entero;
+		Definir tipoTorta, saborTorta, tamanoTorta, eventoTorta Como Caracter;
+		Definir registrarPedido Como Logico;
+
+		registrarPedido <- Falso;
+		tortaMediaLibra <- 17000;
+		torta1Libra <- 32000;
+		torta2Libras <- 48000;
+		adicionPersonalizacion <- 15000;
+		contadorPedido <- 0;
+		totalFactura <- 0;
+		totalPedido <- 0;
+
+		Escribir "***PASTELERIA DON CARLOS***";
+		Escribir "Menú de usuarios:";
+		Escribir  " 1 - ConsultarProductos";
+		Escribir  " 2 - Registrar pedidos";
+		Escribir  " 3 - Facturar Ventas";
+		Escribir  "Escoja una opcion 1-3:";
+		Leer eleccionUsuario;
+		Limpiar Pantalla;
+
+		Segun eleccionUsuario Hacer
+
+			1:	
+				Escribir "Señor(a) usuario(a), a continuacion le presentamos las opciones para hallar la torta deseada:";
+				Escribir "Seleccione el tipo de torta: 1 - Tradicional; 2 - Maria Luisa; 3 - Personalizada. (Digite 1-3)";
+				Leer eleccion1;
+				Si eleccion1 = 1 Entonces
+					tipoTorta <- "Tradicional";
+				SiNo
+					Si eleccion1 = 2 Entonces
+						tipoTorta <- "Maria Luisa";
+					SiNo
+						Si eleccion1 = 3 Entonces
+							tipoTorta <- "Personalizada";
+							Escribir "Para que tipo de evento desea la torta?";
+							Leer eventoTorta;
+							totalPedido <- totalPedido +  adicionPersonalizacion;
+						SiNo
+							Escribir "Elija una opcion valida";
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Selecciones el sabor de la torta: 1 - Chocolate; 2 - Vainilla; 3 - Mora. (Digite 1-3)";
+				Leer eleccion2;
+
+				Si eleccion2 = 1 Entonces
+					saborTorta <- "Chocolate";
+				SiNo
+					Si eleccion2 = 2 Entonces
+						saborTorta <- "Vainilla";
+					SiNo
+						Si eleccion2 = 3 Entonces
+							saborTorta <- "Mora";
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Selecciones el tamaño de la torta: 1 - 1/2 Libra; 2 - 1 Libra; 3 - 2 Libras. (Digite 1-3)";
+				Leer eleccion3;
+
+				Si eleccion3 = 1 Entonces
+					tamanoTorta <- "1/2 Libra";
+					totalPedido <- totalPedido +  tortaMediaLibra;
+				SiNo
+					Si eleccion3 = 2 Entonces
+						tamanoTorta <- "1 Libra";
+						totalPedido <- totalPedido +  torta1Libra;
+					SiNo
+						Si eleccion3 = 3 Entonces
+							tamanoTorta <- "2 Libras";
+							totalPedido <- totalPedido +  torta2Libras;
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "La torta seleccionada es: ", tipoTorta, ",", " con sabor a ", saborTorta, " y de ", tamanoTorta, " por valor de ", 					totalPedido, " pesos.";
+				Escribir "Desea registrar pedido (Digite Falso o Verdadero)?";
+				Leer registrarPedido;
+				Limpiar Pantalla;
+
+				Si registrarPedido = Verdadero Entonces
+					contadorPedido <- contadorPedido + 1;
+					Escribir "Pedido de Torta ", tipoTorta, ",", " con sabor a ", saborTorta, " y de ", tamanoTorta, ", ha sido registrado 					satisfactoriamente con pedido No.", contadorPedido, " por valor de ", totalPedido, " pesos.";
+				SiNo
+					Si registrarPedido = Falso Entonces
+						Escribir "A la orden, ha sido un gusto atenderlo.";
+					FinSi
+				FinSi
+
+			2:
+				Escribir "***Modulo de Recepcion de Pedidos***";
+				Escribir "Seleccione el tipo de torta: 1 - Tradicional; 2 - Maria Luisa; 3 - Personalizada. (Digite 1-3)";
+				Leer eleccion1;
+				Si eleccion1 = 1 Entonces
+					tipoTorta <- "Tradicional";
+				SiNo
+					Si eleccion1 = 2 Entonces
+						tipoTorta <- "Maria Luisa";
+					SiNo
+						Si eleccion1 = 3 Entonces
+							tipoTorta <- "Personalizada";
+							Escribir "Para que tipo de evento desea la torta? - (Cumpleaños, matrimonio, bautizo, etc)";
+							Leer eventoTorta;
+							totalPedido <- totalPedido +  adicionPersonalizacion;
+
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Selecciones el sabor de la torta: 1 - Chocolate; 2 - Vainilla; 3 - Mora. (Digite 1-3)";
+				Leer eleccion2;
+
+				Si eleccion2 = 1 Entonces
+					saborTorta <- "Chocolate";
+				SiNo
+					Si eleccion2 = 2 Entonces
+						saborTorta <- "Vainilla";
+					SiNo
+						Si eleccion2 = 3 Entonces
+							saborTorta <- "Mora";
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Selecciones el tamaño de la torta: 1 - 1/2 Libra; 2 - 1 Libra; 3 - 2 Libras. (Digite 1-3)";
+				Leer eleccion3;
+
+				Si eleccion3 = 1 Entonces
+					tamanoTorta <- "1/2 Libra";
+					totalPedido <- totalPedido +  tortaMediaLibra;
+				SiNo
+					Si eleccion3 = 2 Entonces
+						tamanoTorta <- "1 Libra";
+						totalPedido <- totalPedido +  torta1Libra;
+					SiNo
+						Si eleccion3 = 3 Entonces
+							tamanoTorta <- "2 Libra";
+							totalPedido <- totalPedido +  torta2Libras;
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				contadorPedido <- contadorPedido + 1;
+				Escribir "Pedido de Torta ", tipoTorta, ",", " con sabor a ", saborTorta, " y de ", tamanoTorta, ", ha sido registrado 						satisfactoriamente con pedido No.", contadorPedido, " por valor de ", totalPedido, " pesos.";
+
+			3:
+				Escribir "***Modulo de Facturación***";
+				Escribir "Seleccione el tipo de torta: 1 - Tradicional; 2 - Maria Luisa; 3 - Personalizada. (Digite 1-3)";
+				Leer eleccion1;
+				Si eleccion1 = 1 Entonces
+					tipoTorta <- "Tradicional";
+				SiNo
+					Si eleccion1 = 2 Entonces
+						tipoTorta <- "Maria Luisa";
+					SiNo
+						Si eleccion1 = 3 Entonces
+							tipoTorta <- "Personalizada";
+							totalFactura <- totalFactura + adicionPersonalizacion;						
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Selecciones el sabor de la torta: 1 - Chocolate; 2 - Vainilla; 3 - Mora. (Digite 1-3)";
+				Leer eleccion2;
+
+				Si eleccion2 = 1 Entonces
+					saborTorta <- "Chocolate";
+				SiNo
+					Si eleccion2 = 2 Entonces
+						saborTorta <- "Vainilla";
+					SiNo
+						Si eleccion2 = 3 Entonces
+							saborTorta <- "Mora";
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Selecciones el tamaño de la torta: 1 - 1/2 Libra; 2 - 1 Libra; 3 - 2 Libras. (Digite 1-3)";
+				Leer eleccion3;
+
+				Si eleccion3 = 1 Entonces
+					tamanoTorta <- "1/2 Libra";
+					totalFactura <- totalFactura + tortaMediaLibra;
+				SiNo
+					Si eleccion3 = 2 Entonces
+						tamanoTorta <- "1 Libra";
+						totalFactura <- totalFactura + torta1Libra;
+					SiNo
+						Si eleccion3 = 3 Entonces
+							tamanoTorta <- "2 Libras";
+							totalFactura <- totalFactura + torta2Libras;
+						FinSi
+					FinSi
+				FinSi
+				Limpiar Pantalla;
+
+				Escribir "Señor(a) cliente, usted ha adquirido torta ", tipoTorta, ",", " con sabor a ", saborTorta, " y de ", tamanoTorta, ".";
+				Escribir "El total de su compra es de: ", totalFactura, " pesos.";
+
+			De Otro Modo
+				Escribir "Favor, elegir entre las opciones presentadas.";		
+
+		FinSegun
+
+	FinAlgoritmo
+
+
 9.	El profesor de geometría está explicando a sus estudiantes las fórmulas para calcular el área de diferentes figuras geométricas, para ello requiere una aplicación que le facilite el ejercicio solicitándole los valores al estudiante. La aplicación debe permitir que el estudiante seleccione si desea calcular el área de un rectángulo, triángulo o trapecio. No olvide solicitar los datos necesarios para realizar cada cálculo y mostrar su respectivo resultado.
+
+	Algoritmo areaFigurasGeometricas
+
+		Definir figuraSeleccionada Como Entero;
+		Definir baseRectangulo, areaRectangulo, alturaRectangulo, baseTriangulo, alturaTriangulo, areaTriangulo, base1Trapecio, base2Trapecio, alturaTrapecio, 		       areaTrapecio como Real;
+
+		Escribir "***Calculo de Area de Figuras Geometricas***";
+		Escribir "Seleccionar figura";
+		Escribir " 1 - Rectangulo";
+		Escribir " 2 - Triangulo";
+		Escribir " 3 - Trapecio";
+		Escribir "Selecciones 1-3";
+		Leer figuraSeleccionada;
+		Limpiar Pantalla;
+
+		Segun figuraSeleccionada Hacer
+			1:	
+				Escribir "Ingrese la base del rectangulo: ";
+				Leer baseRectangulo;
+				Escribir "Ingrese la altura del rectangulo: ";
+				Leer alturaRectangulo;
+				areaRectangulo <- (baseRectangulo * alturaRectangulo);
+				Escribir "El area del rectangulo es ", areaRectangulo;
+
+			2:	
+				Escribir "Ingrese la base del triangulo: ";
+				Leer baseTriangulo;
+				Escribir "Ingrese la altura del triangulo: ";
+				Leer alturaTriangulo;
+				areaTriangulo <- (baseTriangulo * alturaTriangulo) / 2;
+				Escribir "El area del triangulo es ", areaTriangulo;
+
+			3:	
+				Escribir "Ingrese la base 1 del trapecio: ";
+				Leer base1Trapecio;
+				Escribir "Ingrese la base 2 del trapecio: ";
+				Leer base2Trapecio;
+				Escribir "Ingrese la altura del trapecio: ";
+				Leer alturaTrapecio;
+				areaTrapecio <- alturaTrapecio * ((base1Trapecio * base2Trapecio)/2);
+				Escribir "El area del trapecio es ", areaTrapecio;
+
+			De Otro Modo:
+				Escribir "Favor elegir alguna de las opciones presentadas";
+
+		FinSegun
+
+	FinAlgoritmo
+
 
 10.	El banco "Su banco fiel" es un banco que inicia sus actividades financieras y necesita una aplicación para llevar las cuentas de sus usuarios; por lo tanto, se sugiere que la cuenta tenga los atributos titular y cantidad. Para cada cliente las cuentas permitirán realizar ingresos, retiros o consultas de valor. En los ingresos no se pueden insertar valores negativos y para los retiros el valor no puede ser mayor al valor que tiene en la cuenta.
